@@ -1,0 +1,23 @@
+h1 {
+    margin: 10px;
+    color: white;
+}
+.NavBar {
+    background-color: purple;
+    height: 100px;
+}
+.NavBar a {
+    text-decoration: none;
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 2px 2px, 4px 4px violet;
+
+}
+.NavBar a:hover {
+    color:purple;
+    background-color: white;
+    padding: 7px;
+}
