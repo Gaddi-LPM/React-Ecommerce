@@ -1,0 +1,11 @@
+.Cart {
+    width: 60px;
+    color:white;
+    border: 3px outset;
+    border-radius: 5px;
+}
+.Cart svg {
+    width: 50px;
+    height: 50px;
+    color: white;
+}
