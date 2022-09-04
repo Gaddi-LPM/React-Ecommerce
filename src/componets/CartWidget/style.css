@@ -3,9 +3,16 @@
     color:white;
     border: 3px outset;
     border-radius: 5px;
+    cursor: pointer;
 }
 .Cart svg {
     width: 50px;
     height: 50px;
     color: white;
+}
+.Cart:hover {
+    background-color: white;
+}
+.Cart svg:hover {
+    color: purple;
 }
