@@ -4,25 +4,25 @@ import "./style.css";
 
 const ItemCount = ({stock , inicial , onAdd}) => {
 
-    const [Count , setCount] = useState(inicial)
+    const [count , setCount] = useState(inicial)
 
     const handleAdd = () => {
-        if(Count < stock) {
-            setCount(Count +1)
+        if(count < stock) {
+            setCount(count +1)
         }
         else{
             console.log("No hay suficiente stock disponible");
         }
     }
     const handleDecrement = () => {
-       setCount(Count -1)
-      if(Count === 0){
+       setCount(count -1)
+      if(count === 1){
         alert("Se requiere minimo una Unidad");
         setCount(inicial)
       }
     }
     const addCart = ()=>{
-        onAdd(Count)
+        onAdd(count)
         setCount(inicial)
     }
 
@@ -31,7 +31,7 @@ const ItemCount = ({stock , inicial , onAdd}) => {
     <div>
       <div className='container-count'>
          <button onClick={handleDecrement} className="btn-count">-</button>
-         <p className="parr-count">{Count}</p>
+         <p className="parr-count">{count}</p>
          <button onClick={handleAdd} className="btn-count">+</button>
       </div>
       <div className="container-cart">
