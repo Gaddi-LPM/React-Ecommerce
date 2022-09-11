@@ -1,4 +1,19 @@
 .container-item {
-    display: flex; 
+    margin: 5px;
     background-color: purple;
+    border-radius: 5px;
+}
+.container-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid white;
+    margin: 10px;
+}
+.card-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    
 }
