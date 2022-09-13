@@ -1,8 +1,10 @@
 
 .container-ItemList {
     display: flex;
-    flex-wrap: wrap;
     width: 100vw;
+    /* width: 250px;
+    height: 250px; */
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }

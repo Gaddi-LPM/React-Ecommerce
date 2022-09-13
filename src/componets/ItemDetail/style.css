@@ -1,0 +1,28 @@
+.container-ItemDetail {
+    display: flex;
+    width: 50vw;
+    margin: auto;
+    margin-top: 15px;
+    border: 3px outset;
+    border-radius: 5px;
+    padding: 10px;
+}
+.ItemDetail-text {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    margin-left: 10px;
+    flex-direction: column;
+    text-align: justify;
+}
+.ItemDetail-img {
+    width: 400px;
+    height: 400px;
+}
+.ItemDetail-count {
+    margin: auto;
+}
+.ItemDetail-count h4 {
+    margin-left: 25px;
+    margin-bottom: 10px;
+}

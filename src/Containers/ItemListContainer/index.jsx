@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import ItemList from '../../componets/ItemList';
-import { products } from '../../data/products';
+//import { products } from '../../data/products';
 //import ItemCount from '../../componets/ItemCount';
 import "./style.css";
 
@@ -14,15 +14,17 @@ const ItemListContainer = ({greeting}) => {
 
     (async () => {
 
-      const promesa = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(products);
-        }, 3000);
-      });
+      // const promesa = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve(products);
+      //   }, 3000);
+      // });
     
       try {
-        const resultado = await promesa;
-        setProducto(resultado)
+        const resultado = await fetch('https://fakestoreapi.com/products');
+        const productos = await resultado.json();
+        setProducto(productos)
+        console.log(productos)
 
       } catch (error) {
         console.log(error);
@@ -30,8 +32,6 @@ const ItemListContainer = ({greeting}) => {
     })();
   
 }, [])
-
-
 
   /*
   const agregarAlCarrito = (cantidad) => {

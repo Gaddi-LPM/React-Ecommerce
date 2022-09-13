@@ -8,8 +8,8 @@ const Item = ({product}) => {
     <div className='container-item'>
 
       <div className='container-img'>
-         <img className='card-img' src={product.imagen} alt="" /> 
-         <h3>{product.name}</h3>
+         <p>{product.title}</p>
+         <img className='card-img' src={product.image} alt="" /> 
          {/* <p>{product.description}</p> */}
       </div>
         
