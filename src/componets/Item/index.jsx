@@ -17,7 +17,6 @@ const Item = ({product}) => {
       <div className='container-img'>
          <p>{product.title}</p>
          <img className='card-img' src={product.image} alt="" /> 
-         {/* <p>{product.description}</p> */}
       </div>
         
     </div>

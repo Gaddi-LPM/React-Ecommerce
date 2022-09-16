@@ -23,7 +23,9 @@
     margin-top: 2px;
 }
 .btn-cart {
-    border: 2px solid grey purple;
+    width: 100%;
+    margin-top: 5px;
+    border: outset;
     background-color: purple;
     color: white;
     cursor: pointer;

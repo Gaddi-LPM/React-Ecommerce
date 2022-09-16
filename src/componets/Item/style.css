@@ -4,7 +4,8 @@
     margin: 5px;
     justify-content: center;
     align-content: center;
-    background-color: purple;
+    background-color: white;
+    border: 2px solid purple;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -27,5 +28,6 @@
     
 }
 .container-item:hover {
-    border: 3px solid black;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    transform:translateY(-2%);
 }

@@ -2,8 +2,7 @@
 .container-ItemList {
     display: flex;
     width: 100vw;
-    /* width: 250px;
-    height: 250px; */
+    margin-top: 10px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;

@@ -24,6 +24,14 @@
     margin: auto;
 }
 .ItemDetail-count h4 {
-    margin-left: 40px;
+    margin-left: 33px;
     margin-bottom: 10px;
+}
+.btn-ItemDetail {
+    width: 100%;
+    background-color: purple;
+    color: white;
+    font-weight:400;
+    border: outset;
+    cursor: pointer;
 }
