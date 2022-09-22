@@ -11,8 +11,6 @@
     background-color: purple;
     height: 80px;
     text-transform: uppercase;
-    position:sticky;
-
 }
 .NavBar a {
     text-decoration: none;

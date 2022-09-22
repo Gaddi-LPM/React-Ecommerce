@@ -10,6 +10,7 @@ import {
   Route,
 } from "react-router-dom";
 
+
 function App() {
   return (
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="/cart" element={<CartContainer/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
     
   );
 }
