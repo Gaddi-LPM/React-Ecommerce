@@ -16,8 +16,7 @@ const ItemDetail = ({product}) => {
   const addCart = (quantity)=>{
     setQty(quantity)
   }
-  console.log(qty);
-
+ 
   const handleFinish = ()=>{
     const productToSave = {...product , quantity: qty};
     addItem(productToSave);
