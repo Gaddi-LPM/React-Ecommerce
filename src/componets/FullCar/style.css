@@ -1,0 +1,11 @@
+.container-fullCar{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.container-fullCar p {
+    margin-left: 10px;
+}
+.container-fullCar button {
+    margin-left: 10px;
+}
