@@ -7,7 +7,6 @@ export const Shop = createContext(null);
 const ShopProvider = ({children}) => {
     
     const [cart , setCart] = useState([]);
-
     const addItem = (item)=>{
 
         const productoRepetido = isInCart(item.id);
@@ -25,7 +24,6 @@ const ShopProvider = ({children}) => {
             const cartModificado = [...cart, item];
             setCart(cartModificado)
         }
-
     }
 
     const isInCart = (id)=>{

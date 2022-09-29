@@ -1,11 +1,25 @@
 .container-fullCar{
     display: flex;
-    align-items: center;
+    width: 60%;
     margin: 10px;
+    padding: 10px;
+    align-items: center;
+    border: 1px solid black;
 }
 .container-fullCar p {
     margin-left: 10px;
 }
 .container-fullCar button {
     margin-left: 10px;
+    background-color: purple;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+.fullcart{
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid purple;
+    border-radius: 5px;
 }

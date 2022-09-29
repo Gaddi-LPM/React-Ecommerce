@@ -7,18 +7,18 @@ import "./style.css";
 
 const CartContainer = () => {
   
-  const {cart, removeItem, cleanCart} = useContext(Shop);
+  const {cart, cleanCart} = useContext(Shop);
 
-  
   return (
+
     <div className='Cart-Container'>
       
-      <FullCar product={cart} remove={removeItem}/>
-      <button onClick={cleanCart}>Clear</button>
-
+      <h2>Bienvenido a tu Carrito</h2>
+      <FullCar product={cart}/>
+      <button onClick={cleanCart}>Clear Cart</button>
+    
     </div>
      
-    
   )
 }
 

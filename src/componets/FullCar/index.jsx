@@ -1,23 +1,24 @@
 import React from 'react'
+import { useContext } from 'react';
+import { Shop } from '../../Context/ShopProvider';
 import "./style.css";
 
 
 const FullCar = (props) => {
 
-    //console.log(props.remove);
-
+    const {removeItem} = useContext(Shop);
 
   return (
 
-        <div>
+        <div className='fullcart'>
             {props.product.map(item =>{
                 return <div className='container-fullCar' key={item.id}>
 
                           <img src={item.image} style={{width:70 , height:70}} alt="product"/>
                           <p>{item.title}</p>
-                          <p>{item.price}</p>
-                          <p>{item.quantity}</p>
-                          <button>REMOVE</button>
+                          <p>${item.price}</p>
+                          <p>Cantidad {item.quantity}</p>
+                          <button onClick={()=>removeItem(item)}>REMOVE</button>
 
                         </div>
             } )}
