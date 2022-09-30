@@ -16,6 +16,8 @@ const CartContainer = () => {
       <h2>Bienvenido a tu Carrito</h2>
       <FullCar product={cart}/>
       <button onClick={cleanCart}>Clear Cart</button>
+      <button>Back</button>
+
     
     </div>
      
