@@ -1,24 +1,34 @@
 import React from 'react'
 import { useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 import FullCar from '../../componets/FullCar';
 import { Shop } from '../../Context/ShopProvider';
 import "./style.css";
 
-
 const CartContainer = () => {
   
   const {cart, cleanCart} = useContext(Shop);
+  const navigate = useNavigate()
+  
+  const back = ()=>{
+    navigate('/');
+  }
+  
+  const carro = cart.find(item => item.id !== "");
 
   return (
 
     <div className='Cart-Container'>
       
-      <h2>Bienvenido a tu Carrito</h2>
-      <FullCar product={cart}/>
-      <button onClick={cleanCart}>Clear Cart</button>
-      <button>Back</button>
-
-    
+      <h2>Welcome to your Cart</h2>
+  
+      { carro===undefined ? <h3>Su Carrito esta Vacio. ¡ Vamos a comprar algo !</h3> : <FullCar product={cart}/>}
+      <div className='Cart-Container-button'>
+        { carro===undefined ? "" : <button onClick={cleanCart}>Clear Cart</button>}
+        <button onClick={back}>Back</button>
+        { carro===undefined ? "" : <button>Terminar mi Compra</button>}
+      </div>
+ 
     </div>
      
   )

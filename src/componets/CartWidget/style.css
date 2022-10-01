@@ -1,7 +1,6 @@
 .Cart {
     width: 60px;
     color:white;
-    border: 3px outset;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -10,9 +9,17 @@
     height: 50px;
     color: white;
 }
-.Cart:hover {
+.Cart p{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid white;
     background-color: white;
-}
-.Cart svg:hover {
     color: purple;
+    border-radius: 50px;
+    width: 50%;
+    margin-top: 10px;
+}
+.Cart:hover{
+    transform: scale(1.1,1.1);
 }

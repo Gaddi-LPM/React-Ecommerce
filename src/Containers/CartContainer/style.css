@@ -1,0 +1,31 @@
+.Cart-Container h2{
+    margin: 20px;
+}
+.Cart-Container h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: purple;
+    margin-top: 20px;
+}
+.Cart-Container-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.Cart-Container-button button{
+    background-color: purple;
+    color: white;
+    font-size: 20px;
+    margin: 4px;
+    padding: 4px;
+    border: outset;
+    cursor: pointer;
+}
+.Cart-Container-button button:hover{
+    border-radius: 5px;
+    transform: scale(1.1,1.1);
+    transition: 200ms;
+    
+}
