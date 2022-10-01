@@ -10,11 +10,18 @@ const CartContainer = () => {
   const {cart, cleanCart} = useContext(Shop);
   const navigate = useNavigate()
   
+  const carro = cart.find(item => item.id !== "");
+  
   const back = ()=>{
     navigate('/');
   }
+
+  const finishBuying = ()=>{
+    alert("Su compra se ha generado con exito.¡ GRACIAS !")
+    cleanCart()
+    navigate("/")
+  }
   
-  const carro = cart.find(item => item.id !== "");
 
   return (
 
@@ -26,7 +33,7 @@ const CartContainer = () => {
       <div className='Cart-Container-button'>
         { carro===undefined ? "" : <button onClick={cleanCart}>Clear Cart</button>}
         <button onClick={back}>Back</button>
-        { carro===undefined ? "" : <button>Terminar mi Compra</button>}
+        { carro===undefined ? "" : <button onClick={finishBuying}>Terminar mi Compra</button>}
       </div>
  
     </div>
