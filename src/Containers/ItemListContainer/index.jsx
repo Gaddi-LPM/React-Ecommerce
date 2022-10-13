@@ -5,6 +5,8 @@ import ItemList from '../../componets/ItemList';
 import { useParams } from 'react-router-dom';
 import Loader from '../../componets/Loader';
 import "./style.css";
+import { db } from '../../FireBase/config';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ItemListContainer = () => {
   
@@ -17,21 +19,18 @@ const ItemListContainer = () => {
     (async () => {
 
       try {
-        if(categoryId){
-          const resultado = await fetch(`https://fakestoreapi.com/products/category/${categoryId}`);
-          const productos = await resultado.json();
-          setProducto(productos)
-          setLoading(false);
-      
-        }
-        else{
-          const resultado = await fetch(`https://fakestoreapi.com/products`);
-          const productos = await resultado.json();
-          setLoading(false);
-          setProducto(productos)
-    
-        }
-        
+
+          const q = !categoryId ? query(collection(db, "products")) 
+          : query(collection(db, "products"), where("category", "==", categoryId))
+          const querySnapshot = await getDocs(q);
+          const productosFirebase =[]
+          querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          productosFirebase.push({id: doc.id , ...doc.data()})
+        });
+        setLoading(false);
+        setProducto(productosFirebase)
+
       } catch (error) {
         console.log(error);
       }
@@ -43,5 +42,4 @@ return (
   <div> {loading ? <Loader/> : <ItemList products={producto} /> } </div>
   )
 }
-
 export default ItemListContainer;

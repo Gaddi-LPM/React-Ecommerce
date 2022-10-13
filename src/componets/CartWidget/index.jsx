@@ -14,6 +14,7 @@ const CartWidget = () => {
   const cartOut = cart.find(item => item !== "")
 
   const itemCart = cart.length;
+  console.log(itemCart)
 
   const backCart= ()=>{
     navigate("./cart")
