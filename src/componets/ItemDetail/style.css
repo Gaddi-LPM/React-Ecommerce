@@ -35,3 +35,6 @@
     border: outset;
     cursor: pointer;
 }
+.ItemDetail-text-pr {
+    margin-top: 10px;
+}

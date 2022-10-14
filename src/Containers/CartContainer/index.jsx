@@ -10,7 +10,7 @@ const CartContainer = () => {
   const {cart, cleanCart} = useContext(Shop);
   const navigate = useNavigate()
   
-  const carro = cart.find(item => item.id !== "");
+  const carro = cart.find(item => item.title !== "");
   
   const back = ()=>{
     navigate('/');

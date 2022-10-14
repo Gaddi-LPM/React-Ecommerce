@@ -7,12 +7,12 @@ import "./style.css";
 const FullCar = (props) => {
 
     const {removeItem} = useContext(Shop);
-
+  
   return (
 
         <div className='fullcart'>
             {props.product.map(item =>{
-                return <div className='container-fullCar' key={item.id}>
+                return <div className='container-fullCar' key={item.title}>
 
                           <img src={item.image} style={{width:70 , height:70}} alt="product"/>
                           <p>{item.title}</p>
