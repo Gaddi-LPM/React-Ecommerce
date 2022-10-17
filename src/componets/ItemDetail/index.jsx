@@ -33,7 +33,7 @@ const ItemDetail = ({product}) => {
             <p className='ItemDetail-text-pr'> Category: {product.category}</p>
             <div className='ItemDetail-count'>
                 <h4> $ {product.price}</h4>
-                { !qty ?<ItemCount stock={11} inicial={1} onAdd={addCart}/> : <button className='btn-ItemDetail' onClick={handleFinish}> Finalizar Compra</button>}
+                { !qty ?<ItemCount stock={product.stock} inicial={1} onAdd={addCart}/> : <button className='btn-ItemDetail' onClick={handleFinish}> Finalizar Compra</button>}
             </div>
         </div>
     </div>

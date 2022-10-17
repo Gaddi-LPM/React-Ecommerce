@@ -6,6 +6,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
+  
   apiKey: "AIzaSyCsOS64d_6ic3dEP_Jlaa6NV453laZQTJw",
   authDomain: "reactpro22.firebaseapp.com",
   projectId: "reactpro22",

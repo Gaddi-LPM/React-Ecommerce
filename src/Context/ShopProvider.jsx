@@ -39,8 +39,13 @@ const ShopProvider = ({children}) => {
         setCart([])
     }
 
+    const total = ()=>{
+        const total = cart.reduce((acc , producto) => acc += producto.quantity * producto.price , 0)
+        return total
+    }
+
   return (
-        <Shop.Provider value={{cart , addItem , removeItem , cleanCart}}>
+        <Shop.Provider value={{cart , addItem , removeItem , cleanCart , total}}>
             {children}
         </Shop.Provider>
   )
