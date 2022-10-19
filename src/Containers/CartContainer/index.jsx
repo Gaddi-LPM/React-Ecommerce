@@ -1,18 +1,20 @@
 import React from 'react'
-import { useContext} from 'react';
+import { useContext, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import FullCar from '../../componets/FullCar';
 import { Shop } from '../../Context/ShopProvider';
 import ordenGenerada from '../../service/generarOrden';
-import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../FireBase/config';
-import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+import Loader from '../../componets/Loader';
+import Swal from 'sweetalert2'
 import "./style.css";
-
 
 const CartContainer = () => {
   
   const {cart, cleanCart, total} = useContext(Shop);
+  const [loading , setLoading] = useState(false);
   const navigate = useNavigate()
   
   const carro = cart.find(item => item.title !== "");
@@ -22,29 +24,37 @@ const CartContainer = () => {
   }
 
   const finishBuying = async ()=>{
+    setLoading(true)
     const importeTotal = total()
     const orden = ordenGenerada("matias", "maty.live", 23343456, cart, importeTotal)
-
     const docRef = await addDoc(collection(db, "orders"), orden);
-    
-    cart.forEach(async (productoCarrito) =>{
-      const productRef = doc(db, "products", productoCarrito.id);
+
+    cart.forEach( async (productoCarrito) => {
+      const productRef = doc( db , "products", productoCarrito.id)
       const productSnap = await getDoc(productRef);
-       await updateDoc(productRef,{ 
-        stock: productSnap.data().stock - productoCarrito.quantity,
-      
-      });
 
-    });
-
-    alert(`Gracias por su compra! Se genero la orden con ID: ${docRef.id}`);
+      await updateDoc(productRef,{ 
+        stock: productSnap.data().stock - productoCarrito.quantity})
+        
+    })
+    setLoading(false)
+     
+    Swal.fire({
+      title: 'GRACIAS! :)',
+      text: `Se genero orden con ID: ${docRef.id}`,
+      icon: 'success',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+    
     cleanCart()
-    navigate("/")
+    navigate("/") 
   }
   
   return (
 
-    <div className='Cart-Container'>
+    loading ? <Loader/> : <div className='Cart-Container'>
       
       <h2>Welcome to your Cart</h2>
   
@@ -52,7 +62,7 @@ const CartContainer = () => {
       <div className='Cart-Container-button'>
         { carro===undefined ? "" : <button onClick={cleanCart}>Clear Cart</button>}
         <button onClick={back}>Back</button>
-        { carro===undefined ? "" : <button onClick={finishBuying}>Terminar mi Compra</button>}
+        {carro===undefined ? "" : <button onClick={finishBuying}>Terminar mi Compra</button>}
       </div>
  
     </div>

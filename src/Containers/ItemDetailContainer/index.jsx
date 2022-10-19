@@ -10,7 +10,7 @@ import { db } from '../../FireBase/config';
 const ItemDetailContainer = () => {
 
     const [productDetail , setProductDetail] = useState({})
-    const [loading , setLoading] = useState(true);
+    const [loading , setLoading] = useState(false);
     const {productId} = useParams();
 
     useEffect(() => {
@@ -24,9 +24,9 @@ const ItemDetailContainer = () => {
                 if (docSnap.exists()) {
                     
                     const docDetail = docSnap.data()
-                    const prod = {id: docDetail.title, ...docDetail}
-                    setProductDetail(prod)
-                    setLoading(false);
+                    const detProd = {id:productId, ...docDetail};
+                    setProductDetail(detProd)
+                    setLoading(true);
                     
                 }else {
                     console.log("No such document!");
@@ -42,7 +42,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-        {loading ? <Loader/> : <ItemDetail product = {productDetail}/>}
+        {!loading ? <Loader/> : <ItemDetail product = {productDetail}/>}
     </div>    
   )
 }
