@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom';
 import Loader from '../../componets/Loader';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from '../../FireBase/config';
+//import NotFound from '../../componets/NotFound';
+
 
 const ItemDetailContainer = () => {
 
@@ -42,7 +44,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-        {!loading ? <Loader/> : <ItemDetail product = {productDetail}/>}
+        {!loading ? <Loader/> : <ItemDetail product = {productDetail}/>}  
     </div>    
   )
 }
