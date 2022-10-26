@@ -18,6 +18,14 @@ const CartContainer = () => {
   const [loading , setLoading] = useState(false);
   const [openform , setOpenForm] = useState(false)
   const navigate = useNavigate()
+  const [data , setData]= useState({
+
+        nombre:"",
+        email:"",
+        telefono:""
+  })
+  
+
   
   const carro = cart.find(item => item.title !== "");
   
@@ -32,9 +40,9 @@ const CartContainer = () => {
   const finishBuying = async ()=>{
     setLoading(true)
     const importeTotal = total()
-    const orden = ordenGenerada("matyas", "maty.live", 23343456, cart, importeTotal)
+    const orden = ordenGenerada(data.nombre, data.email, data.telefono, cart, importeTotal)
     const docRef = await addDoc(collection(db, "orders"), orden);
-   
+    
     cart.forEach( async (productoCarrito) => {
       const productRef = doc( db , "products", productoCarrito.id)
       const productSnap = await getDoc(productRef);
@@ -45,15 +53,19 @@ const CartContainer = () => {
       })
       
       setLoading(false)
-      
+    
       Swal.fire({
         title: 'GRACIAS! :)',
         text: `Se genero orden con ID: ${docRef.id}`,
+        html: `<p>${orden.buyer.nombre}<p/>
+               <p>${orden.buyer.telefono}</p>
+               <p>${orden.buyer.email}</p>`,      
         icon: 'success',
-        imageWidth: 400,
+        imageWidth: 300,
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
+      
       
      cleanCart()
      navigate("/") 
@@ -70,9 +82,8 @@ const CartContainer = () => {
         { carro===undefined ? "" : <button onClick={cleanCart}>Clear Cart</button>}
         <button onClick={back}>Back</button>
         {carro===undefined ? "" : <button onClick={abrirForm}>Terminar mi Compra</button>}
-        {/* <button onClick={abrirForm}>form</button> */}
       </div>
-         {openform && <Form closeForm={setOpenForm} finish={finishBuying}/>} 
+         {openform && <Form closeForm={setOpenForm} finish={finishBuying} datosP={setData}/>} 
     </div>
      
   )
