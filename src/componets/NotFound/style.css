@@ -1,0 +1,16 @@
+.Not-Found {
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    flex-direction: column;
+}
+.Not-Found button{
+    background-color: purple;
+    border: outset;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+    cursor: pointer;
+
+}

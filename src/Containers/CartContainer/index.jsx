@@ -51,7 +51,7 @@ const CartContainer = () => {
       })
       
       setLoading(false)
-    
+          
       Swal.fire({
         title: 'GRACIAS! :)',
         text: `Se genero orden con ID: ${docRef.id}`,
@@ -66,10 +66,9 @@ const CartContainer = () => {
                <p>Fecha: <strong>${orden.createdAt}</strong> </p>`,      
         icon: 'success',
         imageWidth: 300,
-        imageHeight: 300,
+        imageHeight: 200,
         imageAlt: 'Custom image',
       })
-      
       
      cleanCart()
      navigate("/") 

@@ -6,13 +6,14 @@ import { useParams } from 'react-router-dom';
 import Loader from '../../componets/Loader';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from '../../FireBase/config';
-//import NotFound from '../../componets/NotFound';
+import NotFound from '../../componets/NotFound';
 
 
 const ItemDetailContainer = () => {
 
     const [productDetail , setProductDetail] = useState({})
     const [loading , setLoading] = useState(false);
+    const [noDocument , setNoDocument] = useState(false)
     const {productId} = useParams();
 
     useEffect(() => {
@@ -31,6 +32,7 @@ const ItemDetailContainer = () => {
                     setLoading(true);
                     
                 }else {
+                    setNoDocument(true)
                     console.log("No such document!");
                 }
                 
@@ -44,7 +46,8 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-        {!loading ? <Loader/> : <ItemDetail product = {productDetail}/>}  
+        {!loading ? <Loader/> : <ItemDetail product = {productDetail}/>}
+         {noDocument && <NotFound/>} 
     </div>    
   )
 }
